@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — SyncStream</title>
+<meta name="description" content="SyncStream is built by Purposeful IT, an IT and web services company based in Avon, Ohio.">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.about-hero {
+  padding: 80px 0 60px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 60px;
+}
+
+.about-hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.about-hero p {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.about-body {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+.about-content h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 48px;
+  margin-bottom: 16px;
+}
+
+.about-content h2:first-child { margin-top: 0; }
+
+.about-content p {
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.about-content a { color: var(--blue); }
+
+.about-sidebar {
+  padding-top: 4px;
+}
+
+.sidebar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.sidebar-card h4 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin-bottom: 12px;
+}
+
+.sidebar-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.sidebar-card a {
+  display: block;
+  font-size: 14px;
+  color: var(--blue);
+  margin-top: 8px;
+}
+
+.tech-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tech-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.tech-item:last-child { border-bottom: none; }
+.tech-item .label { color: var(--text-muted); }
+.tech-item .value { color: var(--text); font-weight: 500; }
+
+@media (max-width: 768px) {
+  .about-body { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<section class="about-hero">
+  <div class="container">
+    <div style="margin-bottom:16px;">
+      <span class="badge badge-blue">About</span>
+    </div>
+    <h1>Built by people who hate broken feeds.</h1>
+    <p>SyncStream started as a fix for a real problem — a Wix merchant with products on Google that hadn't updated in weeks. It became an app.</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="about-body">
+    <div class="about-content">
+      <h2>Why SyncStream exists</h2>
+      <p>Wix is a legitimate e-commerce platform. Hundreds of thousands of merchants run real stores on it. But the native tools for getting products onto Google Shopping and Meta have always been incomplete — and when they fail, they fail quietly. You don't find out a product is rejected until you check your Merchant Center and see a wall of red.</p>
+      <p>SyncStream was built to close that gap. Dual-platform support, real-time sync via webhooks, and compliance validation that runs before anything reaches Google or Meta. Errors surface in your dashboard, not in a rejection notice three days later.</p>
+
+      <h2>The AI layer</h2>
+      <p>Thin product descriptions are one of the most common reasons Google Shopping performance underdelivers. The title and description are what Google uses to match your products to search queries. If your Wix description is two sentences, you're leaving a lot on the table.</p>
+      <p>SyncStream uses Anthropic's Claude API to expand product descriptions before sync. You control whether AI enhancement is applied, and you review before anything goes live. The goal is better data in, better results out — not AI for its own sake.</p>
+
+      <h2>Who builds it</h2>
+      <p>SyncStream is a product of <a href="https://purposefulit.com" target="_blank">Purposeful IT</a>, an IT and web services company based in Avon, Ohio. Purposeful IT works with small businesses on SEO, web design, and local search — and builds software tools that solve real problems for real merchants.</p>
+      <p>Questions or feedback: <a href="mailto:info@sync-stream.app">info@sync-stream.app</a></p>
+
+      <h2>Roadmap</h2>
+      <p>SyncStream is actively developed. Current version: 4.46. Coming up: Meta OAuth integration, expanded field mapping controls, and a rules engine for conditional product handling. If you have a specific need, email us.</p>
+    </div>
+
+    <div class="about-sidebar">
+      <div class="sidebar-card">
+        <h4>Contact</h4>
+        <p>Questions, feedback, or support requests.</p>
+        <a href="mailto:info@sync-stream.app">info@sync-stream.app</a>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>Built by</h4>
+        <p>Purposeful IT LLC<br>Avon, Ohio</p>
+        <a href="https://purposefulit.com" target="_blank">purposefulit.com</a>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>Tech stack</h4>
+        <div class="tech-stack">
+          <div class="tech-item"><span class="label">App framework</span><span class="value">Wix CLI</span></div>
+          <div class="tech-item"><span class="label">Language</span><span class="value">TypeScript</span></div>
+          <div class="tech-item"><span class="label">Database</span><span class="value">Supabase</span></div>
+          <div class="tech-item"><span class="label">AI</span><span class="value">Claude API</span></div>
+          <div class="tech-item"><span class="label">Hosting</span><span class="value">Wix Cloud</span></div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>Legal</h4>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="/js/components.js"></script>
+</body>
+</html>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SyncStream — Wix Product Feed Sync for Google & Meta</title>
+<meta name="description" content="SyncStream syncs your Wix store to Google Merchant Center and Meta Catalog automatically. Dual-platform, AI-enhanced, real-time compliance feedback.">
+<link rel="canonical" href="https://sync-stream.app">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+/* HERO */
+.hero {
+  padding: 100px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(ellipse, rgba(74,143,255,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: 800;
+  margin-bottom: 24px;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+}
+
+.hero h1 span {
+  background: linear-gradient(135deg, #4a8fff, #9b6dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: 19px;
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.65;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-logos {
+  margin-top: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--text-faint);
+  font-size: 13px;
+}
+
+.platform-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.platform-pill svg { width: 18px; height: 18px; }
+
+/* FLOW DIAGRAM */
+.flow-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-label {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.section-sub {
+  text-align: center;
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto 60px;
+}
+
+.flow-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.flow-node {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  text-align: center;
+  min-width: 160px;
+}
+
+.flow-node-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  font-size: 20px;
+}
+
+.flow-node h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.flow-node p {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  color: var(--text-faint);
+}
+
+.flow-center {
+  position: relative;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 28px 36px;
+  text-align: center;
+  min-width: 180px;
+}
+
+.flow-center .badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.flow-center h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.flow-center p {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.flow-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* FEATURES */
+.features-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: border-color 0.2s;
+}
+
+.feature-card:hover {
+  border-color: var(--border-strong);
+}
+
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.feature-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* HOW IT WORKS */
+.how-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  counter-reset: steps;
+}
+
+.step {
+  position: relative;
+  padding-top: 16px;
+}
+
+.step-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--border-strong);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.step h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.step p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* COMPLIANCE */
+.compliance-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.compliance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.compliance-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+
+.compliance-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.field-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.field-row:last-child { border-bottom: none; }
+
+.field-name { color: var(--text-muted); font-family: 'Courier New', monospace; }
+
+.field-source {
+  color: var(--text-faint);
+  font-size: 12px;
+  text-align: right;
+  max-width: 180px;
+}
+
+.field-status {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-auto { background: var(--green); }
+.status-map { background: var(--blue); }
+
+/* PRICING */
+.pricing-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+
+.pricing-card.featured {
+  border-color: var(--blue);
+  position: relative;
+}
+
+.pricing-card .plan-name {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.pricing-card .price {
+  font-family: 'Syne', sans-serif;
+  font-size: 44px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.pricing-card .price span {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.pricing-card .price-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.pricing-features {
+  list-style: none;
+  margin-bottom: 28px;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-muted);
+  padding: 7px 0;
+}
+
+.check {
+  color: var(--green);
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* CTA SECTION */
+.cta-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.cta-section p {
+  font-size: 17px;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .compliance-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .flow-diagram { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); }
+  .flow-right { flex-direction: row; }
+}
+</style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <span class="badge badge-blue">Wix App Market</span>
+    </div>
+    <h1>Your Wix products,<br><span>everywhere they sell.</span></h1>
+    <p>SyncStream connects your Wix store to Google Merchant Center and Meta Catalog automatically. One install. Two platforms. No manual feed management.</p>
+    <div class="hero-ctas">
+      <a href="https://www.wix.com/app-market" class="btn btn-primary" target="_blank">
+        Install Free on Wix
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#how-it-works" class="btn btn-secondary">See how it works</a>
+    </div>
+    <div class="hero-logos">
+      <span>Syncs with</span>
+      <span class="platform-pill">
+        <svg viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#4285F4"/><text x="12" y="17" text-anchor="middle" fill="white" font-size="11" font-weight="700" font-family="Arial">G</text></svg>
+        Google Merchant Center
+      </span>
+      <span class="platform-pill">
+        <svg viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#1877F2"/><text x="12" y="17" text-anchor="middle" fill="white" font-size="13" font-weight="700" font-family="Arial">f</text></svg>
+        Meta Catalog
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow-section" id="how-it-works">
+  <div class="container">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">Connect once, sync forever</h2>
+    <p class="section-sub">Install the app, connect your accounts, and SyncStream handles the rest. Products stay in sync automatically on every change.</p>
+
+    <div class="flow-diagram">
+      <div class="flow-node">
+        <div class="flow-node-icon" style="background:rgba(74,143,255,0.12);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4a8fff" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h4>Your Wix Store</h4>
+        <p>Products, variants, inventory</p>
+      </div>
+
+      <div class="flow-arrow">
+        <svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8h28M22 2l8 6-8 6" stroke="#3a3a50" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+
+      <div class="flow-center">
+        <span class="badge badge-blue">SyncStream</span>
+        <h4>Transform &amp; Validate</h4>
+        <p>AI-enhanced, compliance-checked</p>
+      </div>
+
+      <div class="flow-arrow">
+        <svg width="32" height="16" viewBox="0 0 32 16" fill="none"><path d="M0 8h28M22 2l8 6-8 6" stroke="#3a3a50" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+
+      <div class="flow-right">
+        <div class="flow-node">
+          <div class="flow-node-icon" style="background:rgba(66,133,244,0.12);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#4285F4" stroke-width="2"/><path d="M12 8v8M8 12h8" stroke="#4285F4" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h4>Google Merchant</h4>
+          <p>Shopping &amp; Performance Max</p>
+        </div>
+        <div class="flow-node">
+          <div class="flow-node-icon" style="background:rgba(24,119,242,0.12);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#1877F2" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#1877F2" stroke-width="2"/></svg>
+          </div>
+          <h4>Meta Catalog</h4>
+          <p>Facebook &amp; Instagram Shopping</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="container">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Everything feed management needs</h2>
+    <p class="section-sub">Built specifically for Wix merchants. No CSV exports, no third-party tools, no guesswork.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:var(--blue-dim);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4a8fff" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Real-time sync</h3>
+        <p>Product changes in your Wix store push to Google and Meta instantly via webhook. No scheduled jobs, no lag, no stale listings.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:var(--purple-dim);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9b6dff" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M22 2 12 12M16 2h6v6"/></svg>
+        </div>
+        <h3>Dual-platform in one install</h3>
+        <p>Google Merchant Center and Meta Catalog from a single dashboard. Connect both or just one. Switch platforms without reinstalling.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:var(--green-dim);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3ecf8e" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <h3>Pre-push compliance validation</h3>
+        <p>Every product is checked against required fields before it reaches Google or Meta. Errors surface per-product in your dashboard, not in a rejection email.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(155,109,255,0.12);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9b6dff" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+        </div>
+        <h3>AI-enhanced descriptions</h3>
+        <p>Thin product descriptions get expanded by Claude before sync. Better copy means better performance in Google Shopping and Meta ads.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:var(--blue-dim);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4a8fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Transparent field mapping</h3>
+        <p>See exactly how your Wix product fields map to GMC and Meta requirements. Override defaults for any field. No black boxes.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon" style="background:var(--green-dim);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3ecf8e" stroke-width="2"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg>
+        </div>
+        <h3>Product Workbench</h3>
+        <p>Bulk-review sync status, fix validation errors, and trigger manual re-syncs across your entire catalog from one view.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE -->
+<section class="compliance-section">
+  <div class="container">
+    <div class="section-label">Field mapping</div>
+    <h2 class="section-title">Your data, mapped correctly</h2>
+    <p class="section-sub">SyncStream knows what each platform requires and maps your Wix fields automatically. You fill in the gaps.</p>
+
+    <div class="compliance-grid">
+      <div class="compliance-card">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#4285F4"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="10" font-weight="700" font-family="Arial">G</text></svg>
+          Google Merchant Center
+        </h3>
+        <div class="field-row">
+          <span class="field-name">id</span>
+          <span class="field-source">product.id</span>
+          <span class="field-status status-auto"></span>
+        </div>
+        <div class="field-row">
+          <span class="field-name">title</span>
+          <span class="field-source">product.name</span>
+          <span class="field-status status-auto"></span>
+        </div>
+        <div class="field-row">
+          <span class="field-name">description</span>
+          <span class="field-source">product.description (AI-enhanced)</span>
+          <span class="field-status status-auto"></span>
+        </div>
+        <div class="field-row">
+          <span class="field-name">price</span>
+          <span class="field-source">product.price + currency</span>
+          <span class="field-status status-auto"></span>
+        </div>
+        <div class="field-row">
+          <span class="field-name">availability</span>
+          <span class="field-source">product.stock.inStock</span>
+          <span class="field-status status-auto"></span>
+        </div>
+        <div class="field-row">
+          <span class="field-name">brand / gtin</span>
+          <span class="field-source">merchant maps in setup</span>
+          <span class="field-status status-map"></span>
+        </div>
+        <div style="margin-top:16px; display:flex; gap:16px; font-size:12px; color:var(--text-faint);">
+          <span style="display:flex;align-items:center;gap:6px;"><span class="field-status status-auto" style="display:inline-block;"></span> Auto-mapped</span>
+          <span style="display:flex;align-items:center;gap:6px;"><span class="field-status status-map" style="display:inline-block;"></span> You map once</span>
+        </div>
+      </div>
+
+      <div class="compliance-card">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect width="18" height="18" x="3" y="3" rx="4" fill="#1877F2"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="11" font-weight="700" font-family="Arial">f</text></svg>
+          Meta Catalog
+        </h3>
+        <div class="field-row">
+          <span class="field-name">id</span>
+          <span class="field-source">product.id</span>
+          <span class="field-status status-auto"></span>
+        </div>
+        <div class="field-row">
+          <span class="field-name">title</span>
+          <span class="field-source">product.name</span>
+          <span class="field-status status-auto"></span>
+        </div>
+        <div class="field-row">
+          <span class="field-name">description</span>
+          <span class="field-source">product.description (AI-enhanced)</span>
+          <span class="field-status status-auto"></span>
+        </div>
+        <div class="field-row">
+          <span class="field-name">price</span>
+          <span class="field-source">product.price (cents format)</span>
+          <span class="field-status status-auto"></span>
+        </div>
+        <div class="field-row">
+          <span class="field-name">availability</span>
+          <span class="field-source">product.stock.inStock</span>
+          <span class="field-status status-auto"></span>
+        </div>
+        <div class="field-row">
+          <span class="field-name">brand / condition</span>
+          <span class="field-source">merchant maps in setup</span>
+          <span class="field-status status-map"></span>
+        </div>
+        <div style="margin-top:16px; display:flex; gap:16px; font-size:12px; color:var(--text-faint);">
+          <span style="display:flex;align-items:center;gap:6px;"><span class="field-status status-auto" style="display:inline-block;"></span> Auto-mapped</span>
+          <span style="display:flex;align-items:center;gap:6px;"><span class="field-status status-map" style="display:inline-block;"></span> You map once</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Simple, transparent pricing</h2>
+    <p class="section-sub">Start free. Upgrade when you need more products or AI credits.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="plan-name">Free</div>
+        <div class="price">$0 <span>/ month</span></div>
+        <div class="price-desc">No credit card required</div>
+        <ul class="pricing-features">
+          <li><span class="check">&#10003;</span> Up to 50 products synced</li>
+          <li><span class="check">&#10003;</span> 25 AI credits per month</li>
+          <li><span class="check">&#10003;</span> Google Merchant Center sync</li>
+          <li><span class="check">&#10003;</span> Meta Catalog sync</li>
+          <li><span class="check">&#10003;</span> Real-time webhook updates</li>
+          <li><span class="check">&#10003;</span> Compliance validation dashboard</li>
+        </ul>
+        <a href="https://www.wix.com/app-market" class="btn btn-secondary" style="width:100%;justify-content:center;" target="_blank">Install Free</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <span class="badge badge-blue" style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);white-space:nowrap;">Most popular</span>
+        <div class="plan-name">Pro</div>
+        <div class="price">$19 <span>/ month</span></div>
+        <div class="price-desc">Billed monthly, cancel anytime</div>
+        <ul class="pricing-features">
+          <li><span class="check">&#10003;</span> Unlimited products</li>
+          <li><span class="check">&#10003;</span> 500 AI credits per month</li>
+          <li><span class="check">&#10003;</span> Google Merchant Center sync</li>
+          <li><span class="check">&#10003;</span> Meta Catalog sync</li>
+          <li><span class="check">&#10003;</span> Real-time webhook updates</li>
+          <li><span class="check">&#10003;</span> Compliance validation dashboard</li>
+          <li><span class="check">&#10003;</span> Product Workbench (bulk tools)</li>
+          <li><span class="check">&#10003;</span> Priority support</li>
+        </ul>
+        <a href="https://www.wix.com/app-market" class="btn btn-primary" style="width:100%;justify-content:center;" target="_blank">Get Pro</a>
+      </div>
+    </div>
+
+    <p style="text-align:center;font-size:13px;color:var(--text-faint);margin-top:24px;">AI credits reset monthly on your billing anniversary. Unused credits do not roll over.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to stop managing feeds manually?</h2>
+    <p>Install SyncStream from the Wix App Market and connect your store in minutes.</p>
+    <a href="https://www.wix.com/app-market" class="btn btn-primary" target="_blank">
+      Install Free on Wix
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="/js/components.js"></script>
+</body>
+</html>

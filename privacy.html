@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — SyncStream</title>
+<meta name="description" content="SyncStream Privacy Policy — how we collect, use, and protect your data.">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.legal-page { padding: 80px 0; }
+</style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<div class="legal-page">
+  <div class="container">
+    <div class="prose">
+      <span class="badge badge-blue" style="margin-bottom:24px;display:inline-flex;">Legal</span>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Effective: April 25, 2026 &nbsp;&middot;&nbsp; Purposeful IT LLC</p>
+
+      <div class="callout">
+        <p>This policy describes how SyncStream collects, uses, and protects data when you use the app. We collect only what is necessary to operate the service.</p>
+      </div>
+
+      <h2>1. Who We Are</h2>
+      <p>SyncStream is a product of Purposeful IT LLC, based in Avon, Ohio. References to "we," "us," or "our" in this policy refer to Purposeful IT LLC. You can contact us at <a href="mailto:info@sync-stream.app">info@sync-stream.app</a>.</p>
+
+      <h2>2. What Data We Collect</h2>
+
+      <h3>From your Wix store</h3>
+      <ul>
+        <li>Product data: titles, descriptions, prices, images, variants, and inventory status</li>
+        <li>Store metadata required to identify your installation (Wix instance ID)</li>
+      </ul>
+
+      <h3>From your connected accounts</h3>
+      <ul>
+        <li>OAuth tokens for Google Merchant Center and Meta, used to push product listings on your behalf</li>
+        <li>These tokens are stored in Wix Secrets Manager under your instance and are never exposed outside the sync process</li>
+      </ul>
+
+      <h3>Sync and operational data</h3>
+      <ul>
+        <li>Per-product sync status, error logs, and last-synced timestamps</li>
+        <li>App configuration settings (field mappings, platform toggles, sync preferences)</li>
+      </ul>
+
+      <h3>What we do not collect</h3>
+      <ul>
+        <li>We do not collect customer data from your Wix store (orders, buyer information, payment data)</li>
+        <li>We do not collect personal information beyond what is provided directly to us via email</li>
+        <li>We do not use cookies or tracking pixels on this website</li>
+      </ul>
+
+      <h2>3. How We Use Your Data</h2>
+      <p>All data collected is used solely to operate the SyncStream service:</p>
+      <ul>
+        <li>Product data is transformed and pushed to Google Merchant Center and Meta Catalog on your behalf</li>
+        <li>OAuth tokens are used exclusively to authenticate API requests to Google and Meta</li>
+        <li>Sync status data is stored to power your dashboard and error reporting</li>
+        <li>Configuration data is stored to apply your mapping preferences on each sync</li>
+      </ul>
+      <p>We do not sell your data. We do not use your product data for advertising or any purpose other than operating the sync service.</p>
+
+      <h2>4. Third-Party Integrations</h2>
+      <p>SyncStream integrates with the following third-party services to operate:</p>
+      <ul>
+        <li><strong>Google Merchant Center</strong> — product listings are pushed via Google Content API v2.1. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+        <li><strong>Meta Catalog API</strong> — product listings are pushed via Meta Graph API. <a href="https://www.facebook.com/policy.php" target="_blank">Meta Privacy Policy</a></li>
+        <li><strong>Anthropic Claude API</strong> — product descriptions submitted for AI enhancement are processed by Anthropic. Descriptions are not stored by Anthropic beyond your request. <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic Privacy Policy</a></li>
+        <li><strong>Supabase</strong> — sync state and configuration data is stored in a Supabase Postgres database hosted on AWS in the US (us-west-2 region). <a href="https://supabase.com/privacy" target="_blank">Supabase Privacy Policy</a></li>
+        <li><strong>Wix</strong> — the app runs within the Wix platform. Wix's own privacy policy governs data held within the Wix ecosystem. <a href="https://www.wix.com/about/privacy" target="_blank">Wix Privacy Policy</a></li>
+      </ul>
+
+      <h2>5. Data Retention</h2>
+      <p>Sync state and configuration data is retained as long as the app is installed on your Wix site. When you uninstall SyncStream, we will delete your sync data and configuration within 30 days.</p>
+      <p>OAuth tokens are deleted immediately upon disconnecting a platform account or uninstalling the app.</p>
+
+      <h2>6. Your Rights and Data Deletion</h2>
+      <p>You may request deletion of your data at any time by emailing <a href="mailto:info@sync-stream.app">info@sync-stream.app</a> with the subject line "Data Deletion Request." Please include your Wix site URL so we can locate your records. We will process deletion requests within 14 business days.</p>
+      <p>You can also revoke SyncStream's access to Google or Meta at any time through your respective account settings, independent of the app.</p>
+
+      <h2>7. Data Security</h2>
+      <p>OAuth tokens are stored in Wix Secrets Manager and are never written to logs or exposed in the app dashboard. All data in transit uses HTTPS. Our Supabase database uses row-level security scoped to your instance ID.</p>
+      <p>We cannot guarantee absolute security of any system, but we apply reasonable technical measures appropriate for the sensitivity of the data we hold.</p>
+
+      <h2>8. Children's Privacy</h2>
+      <p>SyncStream is a business tool and is not directed at children under 13. We do not knowingly collect data from minors.</p>
+
+      <h2>9. Changes to This Policy</h2>
+      <p>We may update this policy as the product evolves. When we do, we will update the effective date at the top of this page. Continued use of SyncStream constitutes acceptance of the revised policy.</p>
+
+      <h2>10. Contact</h2>
+      <p>
+        <a href="mailto:info@sync-stream.app">info@sync-stream.app</a><br>
+        Purposeful IT LLC<br>
+        Avon, OH 44011
+      </p>
+    </div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="/js/components.js"></script>
+</body>
+</html>
