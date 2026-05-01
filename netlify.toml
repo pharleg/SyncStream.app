@@ -3,7 +3,7 @@
 
 [[redirects]]
   from = "/oauth/gmc/callback"
-  to = "https://syncstream.workers.dev/api/gmc-complete-oauth"
+  to = "https://syncstream.workers.dev/api/gmc-oauth-callback"
   status = 200
   force = true
 
